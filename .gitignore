@@ -236,3 +236,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Progect ignored files
+
+users.json
+build
