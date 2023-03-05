@@ -20,6 +20,7 @@
 		"node-schedule": "^2.1.1",
 		"node-telegram-bot-api": "^0.61.0",
 		"openweather-apis": "^4.4.2",
+		"path": "^0.12.7",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.6"
 	},
