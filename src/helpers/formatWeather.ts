@@ -1,5 +1,6 @@
 // IMPORT MODULES
 
+// HELPER FUNCTION
 export default function formatWeather(data: any): string {
   let weather = data.weather[0].description
   let temp = data.main.temp

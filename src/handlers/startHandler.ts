@@ -5,6 +5,7 @@ import isValidCity from '../helpers/isValidCity.js'
 import addUser from '../helpers/addUser.js'
 import bot from '../bot.js'
 
+// HANDLER FUNCTION
 export default async function startHandler(msg: Message) {
   const chatId = msg.chat.id
   const user = await getUser(chatId)

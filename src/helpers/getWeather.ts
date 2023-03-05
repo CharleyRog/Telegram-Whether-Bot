@@ -1,6 +1,7 @@
 // IMPORT MODULES
 import axios from 'axios'
 
+// HELPER FUNCTION
 export default async function getWeather(city: string): Promise<any> {
   const lang: string = 'ru'
   const response = await axios.get(

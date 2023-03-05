@@ -5,6 +5,7 @@ import removeUser from '../helpers/removeUser.js'
 import bot from '../bot.js'
 import { IUser } from '../models/interfaces/IUser.js'
 
+// HANDLER FUNCTION
 export default async function endHandler(msg: Message) {
   const chatId: number = msg.chat.id
   const user: IUser | undefined = await getUser(chatId)
