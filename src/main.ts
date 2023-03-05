@@ -9,7 +9,7 @@ bot.onText(/\/start/, async (msg) => await startHandler(msg))
 
 bot.onText(/\/weather/, async (msg) => await weatherHandler(msg))
 
-bot.onText(/\/endHandler/, async (msg) => await endHandler(msg))
+bot.onText(/\/end/, async (msg) => await endHandler(msg))
 
 // BOT INITIALIZED
 console.log('Bot working')
