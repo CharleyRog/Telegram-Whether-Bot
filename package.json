@@ -9,7 +9,8 @@
 		"start": "npm run build && node build/main",
 		"build": "rimraf ./build && npx tsc",
 		"lint": "npx eslint ./src",
-		"format": "npx eslint ./src --fix"
+		"format": "npx eslint ./src --fix",
+		"test": "jest"
 	},
 	"author": "CharleyRog",
 	"dependencies": {
@@ -25,15 +26,19 @@
 		"request-promise": "^4.2.6"
 	},
 	"devDependencies": {
+		"@jest/globals": "^29.4.3",
+		"@types/jest": "^29.4.0",
 		"@types/node": "^18.14.6",
 		"@types/node-telegram-bot-api": "^0.61.3",
 		"@typescript-eslint/eslint-plugin": "^5.54.0",
 		"@typescript-eslint/parser": "^5.54.0",
 		"eslint": "^8.35.0",
 		"husky": "^8.0.3",
+		"jest": "^29.4.3",
 		"nodemon": "^2.0.21",
 		"prettier": "^2.8.4",
 		"rimraf": "^4.3.0",
+		"ts-jest": "^29.0.5",
 		"ts-node": "^10.9.1",
 		"typescript": "^4.9.5"
 	},
