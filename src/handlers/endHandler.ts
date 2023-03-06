@@ -10,13 +10,12 @@ async function endHandler(msg: Message): Promise<void> {
   try {
     const chatId: number = msg.chat.id
     const user: IUser | undefined = await getUser(chatId)
-    if (user) {
-      await removeUser(chatId)
-      await bot.sendMessage(chatId, 'Ваша информация удалена из базы данных')
-    } else {
+    if (!user) {
       await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
     }
-  } catch (error: any) {
+    await removeUser(chatId)
+    await bot.sendMessage(chatId, 'Ваша информация удалена из базы данных')
+  } catch (error: unknown) {
     console.error(error)
   }
 }

@@ -7,7 +7,7 @@ async function getUser(chatId: number): Promise<IUser | undefined> {
   try {
     const users: IUser[] = await getUsers()
     return users.find((user: IUser) => user.chat_id === chatId)
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error)
   }
 }

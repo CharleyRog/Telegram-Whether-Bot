@@ -23,7 +23,7 @@ function formatWeather(data: any): string | undefined {
     message += `🌇 Закат: ${sunset}\n\n`
 
     return message
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error)
   }
 }

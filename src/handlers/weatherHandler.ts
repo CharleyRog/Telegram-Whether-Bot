@@ -13,25 +13,30 @@ async function weatherHandler(msg: Message): Promise<void> {
   try {
     const chatId: number = msg.chat.id
     const user: IUser | undefined = await getUser(chatId)
-    if (user) {
-      weather.setLang('ru')
-      weather.setUnits('metric')
-      weather.setAPPID(process.env.API_WEATHER)
-      weather.setCity(user.city)
-      weather.getAllWeather(async (err: never, res: never) => {
-        if (err) {
-          console.log('Произошла ошибка при получении погоды')
-        } else {
-          const message: string | undefined = await formatWeather(res)
-          if (message != undefined) {
-            await bot.sendMessage(chatId, message)
-          }
-        }
-      })
-    } else {
+    if (!user) {
       await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
+      return
     }
-  } catch (error: any) {
+    const API_WEATHER: string = process.env.API_WEATHER
+    if (!API_WEATHER) {
+      console.error('API_WEATHER not found')
+      return
+    }
+    weather.setLang('ru')
+    weather.setUnits('metric')
+    weather.setAPPID(process.env.API_WEATHER)
+    weather.setCity(user.city)
+    weather.getAllWeather(async (err: never, res: never) => {
+      if (err) {
+        console.error('Произошла ошибка при получении погоды')
+        return
+      }
+      const message: string | undefined = await formatWeather(res)
+      if (message !== undefined) {
+        await bot.sendMessage(chatId, message)
+      }
+    })
+  } catch (error: unknown) {
     console.error(error)
   }
 }
