@@ -3,11 +3,13 @@ import fs from 'fs'
 import { IUser } from '../models/interfaces/IUser.js'
 
 // HELPER FUNCTION
-export default async function getUsers(): Promise<IUser[]> {
+async function getUsers(): Promise<IUser[] | never[]> {
   try {
     const data = fs.readFileSync('users.json', 'utf8')
     return JSON.parse(data)
-  } catch (err) {
+  } catch (error) {
     return []
   }
 }
+
+export default getUsers

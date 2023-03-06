@@ -6,13 +6,19 @@ import bot from '../bot.js'
 import { IUser } from '../models/interfaces/IUser.js'
 
 // HANDLER FUNCTION
-export default async function endHandler(msg: Message) {
-  const chatId: number = msg.chat.id
-  const user: IUser | undefined = await getUser(chatId)
-  if (user) {
-    await removeUser(chatId)
-    await bot.sendMessage(chatId, 'Ваша информация удалена из базы данных')
-  } else {
-    await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
+async function endHandler(msg: Message): Promise<void> {
+  try {
+    const chatId: number = msg.chat.id
+    const user: IUser | undefined = await getUser(chatId)
+    if (user) {
+      await removeUser(chatId)
+      await bot.sendMessage(chatId, 'Ваша информация удалена из базы данных')
+    } else {
+      await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
+    }
+  } catch (error) {
+    console.error(error)
   }
 }
+
+export default endHandler
