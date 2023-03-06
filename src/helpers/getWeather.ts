@@ -10,7 +10,7 @@ async function getWeather(city: string): Promise<any> {
     )
     const { data } = response
     return data
-  } catch (error) {
+  } catch (error: any) {
     console.error(error)
     return false
   }

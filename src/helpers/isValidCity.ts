@@ -6,7 +6,7 @@ async function isValidCity(city: string): Promise<boolean> {
   try {
     const data: any = await getWeather(city)
     return data.name === city
-  } catch (error) {
+  } catch (error: any) {
     console.error(error)
     return false
   }

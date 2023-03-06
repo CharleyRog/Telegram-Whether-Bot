@@ -10,7 +10,7 @@ async function addUser(chatId: number, city: string): Promise<boolean> {
     users.push({ chat_id: chatId, city: city })
     fs.writeFileSync('users.json', JSON.stringify(users))
     return true
-  } catch (error) {
+  } catch (error: any) {
     console.error(error)
     return false
   }

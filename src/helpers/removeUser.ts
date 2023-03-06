@@ -14,7 +14,7 @@ async function removeUser(chatId: number): Promise<boolean> {
       return true
     }
     return false
-  } catch (error) {
+  } catch (error: any) {
     console.error(error)
     return false
   }

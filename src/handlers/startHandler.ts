@@ -33,7 +33,7 @@ async function startHandler(msg: Message): Promise<void> {
     } else {
       await bot.sendMessage(chatId, 'Город уже добавлен в базу данных. Используйте другую команду.')
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log(error)
   }
 }

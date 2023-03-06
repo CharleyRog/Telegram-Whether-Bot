@@ -31,7 +31,7 @@ async function weatherHandler(msg: Message): Promise<void> {
     } else {
       await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error)
   }
 }

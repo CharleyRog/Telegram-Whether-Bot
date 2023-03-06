@@ -7,7 +7,7 @@ async function getUsers(): Promise<IUser[] | never[]> {
   try {
     const data = fs.readFileSync('users.json', 'utf8')
     return JSON.parse(data)
-  } catch (error) {
+  } catch (error: any) {
     return []
   }
 }

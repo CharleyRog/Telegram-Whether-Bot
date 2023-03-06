@@ -8,5 +8,7 @@ import { Message } from 'node-telegram-bot-api'
 // HANDLERS
 bot.onText(/\/start/, async (msg: Message) => await startHandler(msg))
 bot.onText(/\/weather/, async (msg: Message) => await weatherHandler(msg))
-bot.onText(/\/end/, async (msg: Message) => await endHandler(msg)) // BOT INITIALIZED
+bot.onText(/\/end/, async (msg: Message) => await endHandler(msg))
+
+// BOT INITIALIZED
 console.log('Bot working')
