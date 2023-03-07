@@ -11,7 +11,7 @@ async function endHandler(msg: Message): Promise<void> {
     const chatId: number = msg.chat.id
     const user: IUser | undefined = await getUser(chatId)
     if (!user) {
-      await bot.sendMessage(chatId, 'Вы не авторизированы. Введите /start для регистрации.')
+      await bot.sendMessage(chatId, 'Вы не авторизированны. Введите /start для регистрации.')
     }
     await removeUser(chatId)
     await bot.sendMessage(chatId, 'Ваша информация удалена из базы данных')
